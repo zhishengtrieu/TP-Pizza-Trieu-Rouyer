@@ -1,6 +1,8 @@
 package com.example.pizza;
 
 import com.example.pizza.vue.VueCommIm;
+import com.example.pizza.vue.VueCommText;
+import com.example.pizza.vue.VuePrix;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -77,14 +79,14 @@ public class Principale_IGTP7 extends Application {
         BorderPane psud= new BorderPane();
         psud.setMinHeight(300);
 
-        Label commtxt= new Label("Aucune commande en cours");
+        Label commtxt= new VueCommText();
         commtxt.setFont(new Font("Times", 14));
       //  commtxt.setPreferredSize(new Dimension(935,200));
         psud.setCenter(commtxt);
         //Mettre un panneau VBox
         VBox vb= new VBox();
         vb.setAlignment(Pos.CENTER);
-        Label txtBas = new Label("Pas de commande en cours");
+        Label txtBas = new VuePrix();
         txtBas.setFont(new Font("Times", 16));
         txtBas.setTextAlignment(TextAlignment.CENTER);
         vb.getChildren().add(txtBas);
