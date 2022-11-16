@@ -14,16 +14,16 @@ public class PizzaCreme implements Pizza {
 
     @Override
     public MyImage getPizzalm() {
-        return null;
+        return new MyImage(nomlm, null);
     }
 
     @Override
     public double cout() {
-        return 0;
+        return prix;
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return description;
     }
 }
