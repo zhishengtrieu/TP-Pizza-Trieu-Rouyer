@@ -1,4 +1,6 @@
-package com.example.pizza;
+package com.example.pizza.modele;
+
+import com.example.pizza.vue.Observateur;
 
 public interface Sujet {
 

@@ -1,4 +1,6 @@
-package com.example.pizza;
+package com.example.pizza.modele;
+
+import com.example.pizza.MyImage;
 
 /**
  * Classe qui represente des pizzas base tomate

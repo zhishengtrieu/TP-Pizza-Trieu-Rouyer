@@ -1,5 +1,9 @@
 package com.example.pizza;
 
+import com.example.pizza.modele.Pizza;
+import com.example.pizza.modele.PizzaCreme;
+import com.example.pizza.modele.PizzaTomate;
+
 import java.util.ArrayList;
 
 public class ModeleCommande {

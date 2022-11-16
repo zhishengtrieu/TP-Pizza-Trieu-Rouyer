@@ -1,5 +1,6 @@
-package com.example.pizza;
+package com.example.pizza.vue;
 
+import com.example.pizza.modele.Sujet;
 import javafx.scene.control.Label;
 
 public class VuePrix extends Label implements Observateur {

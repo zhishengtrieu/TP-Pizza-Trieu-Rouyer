@@ -1,4 +1,4 @@
-package com.example.pizza;
+package com.example.pizza.modele;
 
 public interface StrategyFidelite {
 

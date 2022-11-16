@@ -1,6 +1,7 @@
 
-package com.example.pizza;
+package com.example.pizza.vue;
 
+import com.example.pizza.MyImage;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;

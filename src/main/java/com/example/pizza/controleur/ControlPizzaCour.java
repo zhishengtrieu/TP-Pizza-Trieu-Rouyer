@@ -1,5 +1,6 @@
-package com.example.pizza;
+package com.example.pizza.controleur;
 
+import com.example.pizza.ModeleCommande;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
