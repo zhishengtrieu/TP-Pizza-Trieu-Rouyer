@@ -1,4 +1,4 @@
-package com.example.qualite_devpt_javafx.tp7_synthese_pizzas.tp7_synthese;
+package com.example.pizza;
 
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -26,7 +26,7 @@ public class Principale_IGTP7 extends Application {
     public void start(Stage stage) {
 
         String [] ingredients={"Fromage","Champignons","Chorizo","Oeuf","Oignons","Olives noires","Olives vertes","Roquette"};
-       // String[] fidelite = {"Nouveau client", "Cliente avec carte", "Client adhérent"};
+        String[] fidelite = {"Nouveau client", "Cliente avec carte", "Client adhérent"};
         Button[] bIngr;
         BorderPane bp= new BorderPane();
         bp.setPadding(new Insets(10));
