@@ -1,5 +1,8 @@
 package com.example.pizza;
 
+/**
+ * Classe qui represente des pizzas base tomate
+ */
 public class PizzaTomate implements Pizza {
 
     private double prix;
