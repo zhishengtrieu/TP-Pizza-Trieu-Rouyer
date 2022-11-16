@@ -1,7 +1,6 @@
 
 package com.example.pizza;
 
-import com.example.pizza.MyImage;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
@@ -14,9 +13,9 @@ import javafx.scene.shape.Rectangle;
  * A modifier
  *
  */
-public class PanneauImages extends GridPane {
+public class VueCommIm extends GridPane {
 
-	public PanneauImages(){
+	public VueCommIm(){
 		super();
 		this.setPadding(new Insets(15));
 		this.setHgap(25);

@@ -1,7 +1,6 @@
 package com.example.pizza;
 
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -56,7 +55,7 @@ public class Principale_IGTP7 extends Application {
         pcentral.setMaxHeight(300);
 
         //--> Le panneau avec la vision des images des pizzas
-        PanneauImages visionComm = new PanneauImages();
+        VueCommIm visionComm = new VueCommIm();
         pcentral.setCenter(visionComm);
         //--> Le panneau contenant les boutons des ingredrients
         GridPane pingr= new GridPane();
