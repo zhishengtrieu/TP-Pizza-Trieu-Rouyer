@@ -33,7 +33,7 @@ public class ModeleCommande {
     public void calculerPrixCommande(){
         double prix = 0;
         for (Pizza p : listPizza){
-            prix += p.calculerPrix();
+            prix += p.cout();
         }
         prixCommande = prix;
     }
@@ -51,6 +51,6 @@ public class ModeleCommande {
     }
 
     public int getNbPizzaCourante() {
-        return nbPizza
+        return nbPizza;
     }
 }

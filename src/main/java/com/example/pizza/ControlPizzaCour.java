@@ -21,11 +21,14 @@ public class ControlPizzaCour implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent event) {
+        //recuperer la position du clic de la souris
         int x = (int) event.getX();
         int y = (int) event.getY();
+        //calculer le numero de la pizza selectionnee
         int numPizzaSelec = x/225;
+        //si le clic se situe bien sur une pizza on met a jour le modele
         if (y>20 && y<220) {
-            modele.setNumPizzaCourante(numPizzaSelec);
+            //modele.setNumPizzaCourante(numPizzaSelec);
         }
 
     }
