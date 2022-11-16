@@ -1,19 +1,18 @@
 package com.example.pizza;
 
-import com.example.pizza.modele.Pizza;
-import com.example.pizza.modele.PizzaCreme;
-import com.example.pizza.modele.PizzaTomate;
-import com.example.pizza.modele.StrategyFidelite;
+import com.example.pizza.modele.*;
+import com.example.pizza.vue.Observateur;
 
 import java.util.ArrayList;
 
-public class ModeleCommande {
+public class ModeleCommande implements Sujet {
 
     private int nbPizza;
     private ArrayList<Pizza> listPizza;
     private int numCommande;
     private double prixCommande;
     public double taux;
+    private ArrayList<Observateur> listObservateur;
 
     /**
      * Constructeur de la classe ModeleCommande
@@ -24,6 +23,7 @@ public class ModeleCommande {
         this.listPizza = new ArrayList<Pizza>();
         this.numCommande = numCommande;
         this.prixCommande = 0;
+        this.listObservateur = new ArrayList<Observateur>();
     }
 
     /**
@@ -98,5 +98,34 @@ public class ModeleCommande {
      */
     public int getNbPizzaCourante() {
         return nbPizza;
+    }
+
+    /**
+     * Methode permettant d'ajouter un observateur à la liste des observateurs
+     * @param o
+     */
+    public void enregistrerObservateur(Observateur o) {
+        listObservateur.add(o);
+    }
+
+    /**
+     * Methode permettant de supprimer un observateur de la liste des observateurs
+     * @param o
+     */
+    public void supprimerObservateur(Observateur o) {
+        int i = listObservateur.indexOf(o);
+        if (i >= 0) {
+            listObservateur.remove(i);
+        }
+    }
+
+    /**
+     * Methode permettant de notifier tous les observateurs de la liste
+     */
+    public void notifierObservateur() {
+        for (int i = 0; i < listObservateur.size(); i++) {
+            Observateur observer = listObservateur.get(i);
+            observer.actualiser(this);
+        }
     }
 }
