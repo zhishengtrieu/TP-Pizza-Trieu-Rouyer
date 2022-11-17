@@ -7,6 +7,7 @@ import com.example.pizza.modele.ClientNouveau;
 import com.example.pizza.modele.StrategyFidelite;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.ComboBox;
 
 public class ControleurFidelite implements EventHandler<ActionEvent> {
 
@@ -27,17 +28,19 @@ public class ControleurFidelite implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         //on recupere le type de fidelite selectionnee
-        String typeFidelite = actionEvent.getSource().toString();
+        ComboBox combo = (ComboBox) actionEvent.getSource();
+        String typeFidelite = combo.getValue().toString();
         StrategyFidelite fidelite = null;
         if (typeFidelite.equals("Nouveau client")){
             fidelite = new ClientNouveau();
         }else if (typeFidelite.equals("Client adhérent")){
             fidelite = new ClientAbonnement();
-        }else if (typeFidelite.equals("Cliente avec carte")) {
+        }else {
             fidelite = new ClientCarte();
         }
         //on met a jour le modele
         modele.setFidelite(fidelite);
+        System.out.println(fidelite.getTaux());
         //on met a jour la vue
         modele.notifierObservateurs();
     }

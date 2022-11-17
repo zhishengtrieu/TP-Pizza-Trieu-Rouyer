@@ -25,7 +25,7 @@ public class VueCommText extends Label implements Observateur {
         String res = "Votre commande : \n";
         for (int i = 0; i < commandes.size(); i++) {
             Pizza pizza = commandes.get(i);
-            res += String.format("Pizza %o : %2f\n", i,pizza.cout());
+            res += String.format("Pizza %o : %.2f\n", i+1,pizza.cout());
             res += pizza.getDescription() + "\n";
         }
         this.setText(res);

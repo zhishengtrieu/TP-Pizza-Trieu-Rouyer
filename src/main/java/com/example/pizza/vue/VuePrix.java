@@ -17,6 +17,6 @@ public class VuePrix extends Label implements Observateur {
         //on recupere le prix total de la commande
         double total = modele.getPrixCommande();
         //on affiche le prix total
-        this.setText(String.format("Prix total de votre commande : %2f euros", total));
+        this.setText(String.format("Prix total de votre commande : %.2f euros", total));
     }
 }

@@ -24,6 +24,7 @@ public class ModeleCommande implements Sujet {
         this.numCommande = numCommande;
         this.prixCommande = 0;
         this.listObservateur = new ArrayList<Observateur>();
+        this.taux = 1;
     }
 
     /**
@@ -81,6 +82,7 @@ public class ModeleCommande implements Sujet {
      * @return
      */
     public double getPrixCommande() {
+        calculerPrixCommande();
         return prixCommande;
     }
 
