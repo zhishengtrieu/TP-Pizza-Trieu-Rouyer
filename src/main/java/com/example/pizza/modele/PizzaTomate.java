@@ -11,6 +11,7 @@ public class PizzaTomate implements Pizza {
     private String nomlm;
     private String description;
 
+
     public PizzaTomate() {
         this.prix = 5;
         this.nomlm = "file:images/fond_tomate.png";
