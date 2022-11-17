@@ -5,20 +5,20 @@ import com.example.pizza.MyImage;
 public interface Pizza {
 
     /**
-     * Retourne l'image de la pizza
-     * @return MyImage
+     * Methode affichant l'image de la pizza
+     * @return l'image de la pizza
      */
     MyImage getPizzalm();
 
     /**
-     * Retourne le prix de la pizza
-     * @return double
+     * Methode permettant de recuperer le prix de la pizza
+     * @return le prix de la pizza
      */
     double cout();
 
     /**
-     * Retourne la description de la pizza
-     * @return String
+     * Methode permettant de recuperer la description de la pizza
+     * @return la description de la pizza
      */
     String getDescription();
 
