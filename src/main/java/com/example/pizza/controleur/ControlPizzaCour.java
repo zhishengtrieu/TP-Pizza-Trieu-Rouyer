@@ -12,10 +12,18 @@ public class ControlPizzaCour implements EventHandler<MouseEvent> {
 
     private ModeleCommande modele;
 
+    /**
+     * Constructeur de la classe ControlPizzaCour
+     * @param modele le modèle de la commande
+     */
     public ControlPizzaCour(ModeleCommande modele) {
         this.modele = modele;
     }
 
+    /**
+     * Gère l'événement de ControlPizzaCour
+     * @param event
+     */
     @Override
     public void handle(MouseEvent event) {
         //on recupere la position du clic de la souris
