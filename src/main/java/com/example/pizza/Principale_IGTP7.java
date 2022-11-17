@@ -1,5 +1,8 @@
 package com.example.pizza;
 
+import com.example.pizza.controleur.ControlDebutCommande;
+import com.example.pizza.controleur.ControlPizzaCour;
+import com.example.pizza.controleur.ControleurFidelite;
 import com.example.pizza.vue.VueCommIm;
 import com.example.pizza.vue.VueCommText;
 import com.example.pizza.vue.VuePrix;
@@ -9,7 +12,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -26,7 +28,7 @@ public class Principale_IGTP7 extends Application {
 
     @Override
     public void start(Stage stage) {
-
+        ModeleCommande modele = new ModeleCommande(1);
         String [] ingredients={"Fromage","Champignons","Chorizo","Oeuf","Oignons","Olives noires","Olives vertes","Roquette"};
         String[] fidelite = {"Nouveau client", "Cliente avec carte", "Client adhérent"};
         Button[] bIngr;
@@ -41,13 +43,16 @@ public class Principale_IGTP7 extends Application {
         pnord.setAlignment(Pos.CENTER);
 
         ComboBox<String> choixFidelite = new ComboBox<String>( );
-        choixFidelite .getItems().add("Nouveau client");
-        choixFidelite .getItems().add("Client adhérent");
-        choixFidelite .getItems().add("Cliente avec carte");
+        choixFidelite.getItems().add("Nouveau client");
+        choixFidelite.getItems().add("Client adhérent");
+        choixFidelite.getItems().add("Cliente avec carte");
         choixFidelite.setValue("Nouveau client");
+        choixFidelite.setOnAction(new ControleurFidelite(modele));
 
-        Button  addPizzaCreme= new Button(" Ajouter une pizza fond creme ");
+        Button addPizzaCreme= new Button(" Ajouter une pizza fond creme ");
+        addPizzaCreme.setOnAction(new ControlDebutCommande(modele));
         Button addPizzaTomate= new Button(" Ajouter une pizza fond tomate ");
+        addPizzaTomate.setOnAction(new ControlDebutCommande(modele));
         pnord.getChildren().addAll(choixFidelite, addPizzaCreme, addPizzaTomate);
         bp.setTop(pnord); //place pnord en haut de l'IG
 
@@ -59,7 +64,8 @@ public class Principale_IGTP7 extends Application {
 
         //--> Le panneau avec la vision des images des pizzas
         VueCommIm visionComm = new VueCommIm();
-        pcentral.setCenter(visionComm);
+        pcentral.setLeft(visionComm);
+        modele.enregistrerObservateur(visionComm);
         //--> Le panneau contenant les boutons des ingredrients
         GridPane pingr= new GridPane();
         pingr.setAlignment(Pos.CENTER);
@@ -79,22 +85,25 @@ public class Principale_IGTP7 extends Application {
         BorderPane psud= new BorderPane();
         psud.setMinHeight(300);
 
-        Label commtxt= new VueCommText();
+        VueCommText commtxt= new VueCommText();
         commtxt.setFont(new Font("Times", 14));
       //  commtxt.setPreferredSize(new Dimension(935,200));
+        modele.enregistrerObservateur(commtxt);
         psud.setCenter(commtxt);
         //Mettre un panneau VBox
         VBox vb= new VBox();
         vb.setAlignment(Pos.CENTER);
-        Label txtBas = new VuePrix();
+        VuePrix txtBas = new VuePrix();
         txtBas.setFont(new Font("Times", 16));
         txtBas.setTextAlignment(TextAlignment.CENTER);
+        modele.enregistrerObservateur(txtBas);
         vb.getChildren().add(txtBas);
         psud.setBottom(vb);
         bp.setBottom(psud);
 
 
         Scene scene = new Scene(bp,935,670);
+        scene.setOnMouseClicked(new ControlPizzaCour(modele));
         stage.setTitle("Commande de pizzas");
         stage.setScene(scene);
         stage.show();

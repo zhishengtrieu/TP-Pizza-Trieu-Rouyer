@@ -32,7 +32,9 @@ public class VueCommIm extends GridPane implements Observateur{
 		ModeleCommande modele= (ModeleCommande) sujet;
 		//on recupere la liste des pizzas de la commande
 		ArrayList<Pizza> pizzas = modele.getListPizza();
-		for(int i=0 ; i<modele.getNbPizza() ; i++){//Affiche 4 fois la meme pizza de base dans le JPanel courant
+		//on reinitialise la vue
+		this.getChildren().clear();
+		for(int i=0 ; i<modele.getNbPizza() ; i++){
 			Pizza pizza = pizzas.get(i);
 			//on recupere l'image de la pizza
 			MyImage myIm= pizza.getPizzalm();

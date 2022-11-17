@@ -4,6 +4,9 @@ import com.example.pizza.ModeleCommande;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
+/**
+ * Contrôleur qui gère l'événement d'une nouvelle base de pizza
+ */
 public class ControlDebutCommande implements EventHandler<ActionEvent> {
 
     private ModeleCommande modele;
@@ -22,6 +25,15 @@ public class ControlDebutCommande implements EventHandler<ActionEvent> {
      */
     @Override
     public void handle(ActionEvent actionEvent) {
-
+        //on recupere le base de pizza choisie
+        String basePizza = actionEvent.getSource().toString();
+        //on met a jour le modele
+        if (basePizza.contains("tomate")) {
+            modele.ajouterPizza("Tomate");
+        } else {
+            modele.ajouterPizza("Creme");
+        }
+        //on met a jour la vue
+        modele.notifierObservateurs();
     }
 }
