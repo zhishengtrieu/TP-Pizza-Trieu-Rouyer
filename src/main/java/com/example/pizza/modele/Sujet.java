@@ -19,5 +19,5 @@ public interface Sujet {
     /**
      * Notifie tous les observateurs de la liste
      */
-    public void notifierObservateur();
+    public void notifierObservateurs();
 }

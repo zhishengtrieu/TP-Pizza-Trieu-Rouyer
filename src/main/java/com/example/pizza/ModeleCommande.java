@@ -30,7 +30,7 @@ public class ModeleCommande implements Sujet {
      * Met à jour le taux de réduction en fonction du type de client
      * @param strategyFidelite
      */
-    public void setTaux (StrategyFidelite strategyFidelite) {
+    public void setFidelite (StrategyFidelite strategyFidelite) {
         if (strategyFidelite != null) {
             this.taux = strategyFidelite.getTaux();
         } else {
@@ -122,7 +122,7 @@ public class ModeleCommande implements Sujet {
     /**
      * Methode permettant de notifier tous les observateurs de la liste
      */
-    public void notifierObservateur() {
+    public void notifierObservateurs() {
         for (int i = 0; i < listObservateur.size(); i++) {
             Observateur observer = listObservateur.get(i);
             observer.actualiser(this);
@@ -130,5 +130,6 @@ public class ModeleCommande implements Sujet {
     }
 
     public void setNumPizzaCourante(int numPizzaSelec) {
+        nbPizza = numPizzaSelec;
     }
 }
