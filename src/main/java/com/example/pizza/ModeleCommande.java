@@ -96,7 +96,7 @@ public class ModeleCommande implements Sujet {
      * Retourne le numéro de la pizza courante
      * @return
      */
-    public int getNbPizzaCourante() {
+    public int getNumPizzaCourante() {
         return nbPizza;
     }
 
@@ -127,5 +127,8 @@ public class ModeleCommande implements Sujet {
             Observateur observer = listObservateur.get(i);
             observer.actualiser(this);
         }
+    }
+
+    public void setNumPizzaCourante(int numPizzaSelec) {
     }
 }

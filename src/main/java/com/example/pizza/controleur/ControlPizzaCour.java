@@ -33,7 +33,7 @@ public class ControlPizzaCour implements EventHandler<MouseEvent> {
         int numPizzaSelec = x/225;
         //si le clic se situe bien sur une pizza on met a jour le modele
         if (y>20 && y<220) {
-            //modele.setNumPizzaCourante(numPizzaSelec);
+            modele.setNumPizzaCourante(numPizzaSelec);
         }
     }
 }

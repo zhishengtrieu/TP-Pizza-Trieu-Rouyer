@@ -13,7 +13,7 @@ public class PizzaTomate implements Pizza {
 
     public PizzaTomate() {
         this.prix = 5;
-        this.nomlm = "PizzaTomate";
+        this.nomlm = "file:images/fond_tomate.png";
         this.description = "Pizza base Tomate";
     }
 
