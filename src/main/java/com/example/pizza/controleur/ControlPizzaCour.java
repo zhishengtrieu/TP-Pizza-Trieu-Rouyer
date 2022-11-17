@@ -35,6 +35,5 @@ public class ControlPizzaCour implements EventHandler<MouseEvent> {
         if (y>20 && y<220) {
             //modele.setNumPizzaCourante(numPizzaSelec);
         }
-
     }
 }
