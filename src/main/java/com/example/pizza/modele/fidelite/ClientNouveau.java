@@ -1,6 +1,4 @@
-package com.example.pizza.modele;
-
-import com.example.pizza.modele.StrategyFidelite;
+package com.example.pizza.modele.fidelite;
 
 public class ClientNouveau implements StrategyFidelite {
 

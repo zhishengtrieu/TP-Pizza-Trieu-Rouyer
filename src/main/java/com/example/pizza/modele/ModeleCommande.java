@@ -1,6 +1,7 @@
-package com.example.pizza;
+package com.example.pizza.modele;
 
-import com.example.pizza.modele.*;
+import com.example.pizza.modele.decorateurs.*;
+import com.example.pizza.modele.fidelite.StrategyFidelite;
 import com.example.pizza.vue.Observateur;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 public class ModeleCommande implements Sujet {
 
     private int nbPizza;
+    private int numPizzaCourante;
     private ArrayList<Pizza> listPizza;
     private int numCommande;
     private double prixCommande;
@@ -16,6 +18,7 @@ public class ModeleCommande implements Sujet {
 
     /**
      * Constructeur de la classe ModeleCommande
+     *
      * @param numCommande
      */
     public ModeleCommande(int numCommande) {
@@ -29,9 +32,10 @@ public class ModeleCommande implements Sujet {
 
     /**
      * Met à jour le taux de réduction en fonction du type de client
+     *
      * @param strategyFidelite
      */
-    public void setFidelite (StrategyFidelite strategyFidelite) {
+    public void setFidelite(StrategyFidelite strategyFidelite) {
         if (strategyFidelite != null) {
             this.taux = strategyFidelite.getTaux();
         } else {
@@ -41,13 +45,14 @@ public class ModeleCommande implements Sujet {
 
     /**
      * Ajoute une pizza à la commande
+     *
      * @param pizza
      */
-    public void ajouterPizza (String pizza){
+    public void ajouterPizza(String pizza) {
         //On vérifie que le nombre max de pizza n'est pas atteint pour une commande
-        if (nbPizza < 4){
+        if (nbPizza < 4) {
             Pizza p;
-            if (pizza.compareTo("Creme") == 0){
+            if (pizza.compareTo("Creme") == 0) {
                 p = new PizzaCreme();
             } else {
                 p = new PizzaTomate();
@@ -61,9 +66,9 @@ public class ModeleCommande implements Sujet {
     /**
      * Methode permettant de calculer le prix de la commande
      */
-    public void calculerPrixCommande(){
+    public void calculerPrixCommande() {
         double prix = 0;
-        for (Pizza p : listPizza){
+        for (Pizza p : listPizza) {
             prix += p.cout() * taux;
         }
         prixCommande = prix;
@@ -71,14 +76,16 @@ public class ModeleCommande implements Sujet {
 
     /**
      * Retourne le nombre de pizza de la commande
+     *
      * @return
      */
     public int getNbPizza() {
-        return listPizza.size();
+        return nbPizza;
     }
 
     /**
      * Retourne le prix de la commande
+     *
      * @return
      */
     public double getPrixCommande() {
@@ -88,6 +95,7 @@ public class ModeleCommande implements Sujet {
 
     /**
      * Retourne la liste de pizza
+     *
      * @return
      */
     public ArrayList<Pizza> getListPizza() {
@@ -96,14 +104,16 @@ public class ModeleCommande implements Sujet {
 
     /**
      * Retourne le numéro de la pizza courante
+     *
      * @return
      */
     public int getNumPizzaCourante() {
-        return nbPizza;
+        return numPizzaCourante;
     }
 
     /**
      * Methode permettant d'ajouter un observateur à la liste des observateurs
+     *
      * @param o
      */
     public void enregistrerObservateur(Observateur o) {
@@ -112,6 +122,7 @@ public class ModeleCommande implements Sujet {
 
     /**
      * Methode permettant de supprimer un observateur de la liste des observateurs
+     *
      * @param o
      */
     public void supprimerObservateur(Observateur o) {
@@ -131,7 +142,41 @@ public class ModeleCommande implements Sujet {
         }
     }
 
-    public void setNumPizzaCourante(int numPizzaSelec) {
-        nbPizza = numPizzaSelec;
+    public void setNumPizzaCourante(int numPizza) {
+        numPizzaCourante = numPizza;
+    }
+
+    public void choixIngredient(int numIngredient) {
+        //on recupere la pizza courante
+        Pizza pizza = listPizza.get(numPizzaCourante);
+        switch (numIngredient) {
+            case 0:
+                pizza = new PizzaFromage(pizza);
+                break;
+            case 1:
+                pizza = new PizzaChampignon(pizza);
+                break;
+            case 2:
+                pizza = new PizzaChorizo(pizza);
+                break;
+            case 3:
+                pizza = new PizzaOeuf(pizza);
+                break;
+            case 4:
+                pizza = new PizzaOignons(pizza);
+                break;
+            case 5:
+                pizza = new PizzaOlivesN(pizza);
+                break;
+            case 6:
+                pizza = new PizzaOlivesV(pizza);
+                break;
+            case 7:
+                pizza = new PizzaRoquette(pizza);
+                break;
+            default:
+        }
+
+        listPizza.set(numPizzaCourante, pizza);
     }
 }

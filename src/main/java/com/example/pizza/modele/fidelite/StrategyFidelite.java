@@ -1,4 +1,4 @@
-package com.example.pizza.modele;
+package com.example.pizza.modele.fidelite;
 
 public interface StrategyFidelite {
 
@@ -7,5 +7,5 @@ public interface StrategyFidelite {
      * Retourne le taux du prix
      * @return double le taux du prix
      */
-    public double getTaux();
+    double getTaux();
 }
