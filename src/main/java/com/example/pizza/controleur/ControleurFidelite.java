@@ -1,10 +1,10 @@
 package com.example.pizza.controleur;
 
-import com.example.pizza.ModeleCommande;
-import com.example.pizza.modele.ClientAbonnement;
-import com.example.pizza.modele.ClientCarte;
-import com.example.pizza.modele.ClientNouveau;
-import com.example.pizza.modele.StrategyFidelite;
+import com.example.pizza.modele.ModeleCommande;
+import com.example.pizza.modele.fidelite.ClientAbonnement;
+import com.example.pizza.modele.fidelite.ClientCarte;
+import com.example.pizza.modele.fidelite.ClientNouveau;
+import com.example.pizza.modele.fidelite.StrategyFidelite;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;

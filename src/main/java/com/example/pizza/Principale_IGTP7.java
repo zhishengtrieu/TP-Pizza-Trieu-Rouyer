@@ -1,8 +1,10 @@
 package com.example.pizza;
 
 import com.example.pizza.controleur.ControlDebutCommande;
+import com.example.pizza.controleur.ControlIngredients;
 import com.example.pizza.controleur.ControlPizzaCour;
 import com.example.pizza.controleur.ControleurFidelite;
+import com.example.pizza.modele.ModeleCommande;
 import com.example.pizza.vue.VueCommIm;
 import com.example.pizza.vue.VueCommText;
 import com.example.pizza.vue.VuePrix;
@@ -42,10 +44,8 @@ public class Principale_IGTP7 extends Application {
         pnord.setPadding(new Insets(10));
         pnord.setAlignment(Pos.CENTER);
 
-        ComboBox<String> choixFidelite = new ComboBox<String>( );
-        choixFidelite.getItems().add("Nouveau client");
-        choixFidelite.getItems().add("Client adhérent");
-        choixFidelite.getItems().add("Cliente avec carte");
+        ComboBox<String> choixFidelite = new ComboBox<String>();
+        choixFidelite.getItems().addAll(fidelite);
         choixFidelite.setValue("Nouveau client");
         choixFidelite.setOnAction(new ControleurFidelite(modele));
 
@@ -73,7 +73,9 @@ public class Principale_IGTP7 extends Application {
         bIngr= new Button[8];
         for(int i=0;i<ingredients.length;i++){
             bIngr[i]=new Button(ingredients[i]);
+            bIngr[i].setId(String.valueOf(i));
             bIngr[i].setMinSize(100,40);
+            bIngr[i].setOnAction(new ControlIngredients(modele));
             pingr.add(bIngr[i],i,0);
         }
        // pingr.setPreferredSize(new Dimension(935,50));

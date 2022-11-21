@@ -1,7 +1,7 @@
 
 package com.example.pizza.vue;
 
-import com.example.pizza.ModeleCommande;
+import com.example.pizza.modele.ModeleCommande;
 import com.example.pizza.MyImage;
 import com.example.pizza.modele.Pizza;
 import com.example.pizza.modele.Sujet;
@@ -38,14 +38,13 @@ public class VueCommIm extends GridPane implements Observateur{
 			Pizza pizza = pizzas.get(i);
 			//on recupere l'image de la pizza
 			MyImage myIm= pizza.getPizzalm();
-			//myIm.superposer("file:images/ing_fromage.png"); //Permet de superposer un ingrédient
-			this.add(myIm.getSp(),i,1);
 			//si la pizza est la pizza courante, on l'entoure d'un rectangle
 			if (modele.getNumPizzaCourante() == i){
 				Rectangle rect= new Rectangle(200,200, Color.rgb(255,255,255,0.2)); // création d'un rectangle entourant l'image
 				rect.setStroke(Color.BLACK);
-				myIm.getSp().getChildren().add(rect);
+				this.add(rect, i, 1);
 			}
+			this.add(myIm.getSp(),i,1);
 		}
 
 	}

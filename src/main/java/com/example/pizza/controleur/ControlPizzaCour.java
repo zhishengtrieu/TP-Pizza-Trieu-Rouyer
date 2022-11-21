@@ -1,6 +1,6 @@
 package com.example.pizza.controleur;
 
-import com.example.pizza.ModeleCommande;
+import com.example.pizza.modele.ModeleCommande;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
@@ -32,7 +32,7 @@ public class ControlPizzaCour implements EventHandler<MouseEvent> {
         //on calcule le numero de la pizza selectionnee
         int numPizzaSelec = x/225;
         //si le clic se situe bien sur une pizza on met a jour le modele
-        if (y>85 && y<285) {
+        if (y>85 && y<285 && numPizzaSelec<modele.getNbPizza()) {
             modele.setNumPizzaCourante(numPizzaSelec);
         }
         //on met a jour la vue

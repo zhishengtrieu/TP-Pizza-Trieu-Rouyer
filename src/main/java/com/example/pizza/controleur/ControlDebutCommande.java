@@ -1,6 +1,6 @@
 package com.example.pizza.controleur;
 
-import com.example.pizza.ModeleCommande;
+import com.example.pizza.modele.ModeleCommande;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
