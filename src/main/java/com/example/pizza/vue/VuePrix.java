@@ -6,10 +6,17 @@ import javafx.scene.control.Label;
 
 public class VuePrix extends Label implements Observateur {
 
+    /**
+     * Constructeur de la classe VuePrix
+     */
     public VuePrix() {
         super("Pas de commande en cours");
     }
 
+    /**
+     * Methode actualisant le prix de la commande
+     * @param sujet le sujet a actualiser
+     */
     @Override
     public void actualiser(Sujet sujet) {
         //on recupere le modele

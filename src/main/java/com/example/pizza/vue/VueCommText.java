@@ -11,10 +11,17 @@ import java.util.ArrayList;
  */
 public class VueCommText extends Label implements Observateur {
 
+    /**
+     * Constructeur de la classe VueCommText
+     */
     public VueCommText() {
         super("Aucune commande en cours");
     }
 
+    /**
+     * Methode actualisant le texte decrivant de la commande
+     * @param sujet le sujet a actualiser
+     */
     @Override
     public void actualiser(Sujet sujet) {
         //on recupere le modele

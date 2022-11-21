@@ -2,6 +2,7 @@ package com.example.pizza.modele.decorateurs;
 
 import com.example.pizza.modele.Pizza;
 
+
 public class PizzaOeuf extends IngredientPizza {
 
     public PizzaOeuf(Pizza pi) {

@@ -11,6 +11,13 @@ public abstract class IngredientPizza implements Pizza {
     private String nomImage;
     private MyImage myIm;
 
+    /**
+     * Constructeur d' ingrédient de pizza
+     * @param pi la pizza sur laquelle on ajoute l'ingrédient
+     * @param pr le prix de l'ingrédient
+     * @param des la description de l'ingrédient
+     * @param im le nom de l'image de l'ingrédient
+     */
     public IngredientPizza(Pizza pi, double pr, String des, String im){
         this.pizza = pi;
         this.prix = pr;
@@ -20,14 +27,26 @@ public abstract class IngredientPizza implements Pizza {
         this.myIm.superposer(nomImage);
     }
 
+    /**
+     * Retourne la description de la pizza
+     * @return la description de la pizza
+     */
     public String getDescription() {
         return pizza.getDescription() + " - " + description;
     }
 
+    /**
+     * Retourne le prix de la pizza
+     * @return le prix de la pizza
+     */
     public double cout(){
         return prix + pizza.cout();
     }
 
+    /**
+     * Retourne l'image de la pizza
+     * @return l'image de la pizza
+     */
     public MyImage getPizzalm(){
         return myIm;
     }

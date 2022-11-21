@@ -14,12 +14,12 @@ import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
 
 
-/**
- * A modifier
- *
- */
+
 public class VueCommIm extends GridPane implements Observateur{
 
+	/**
+	 * Constructeur de la classe VueCommIm
+	 */
 	public VueCommIm(){
 		super();
 		this.setPadding(new Insets(15));
@@ -27,6 +27,10 @@ public class VueCommIm extends GridPane implements Observateur{
 		this.setAlignment(Pos.CENTER);
 	}
 
+	/**
+	 * Methode actualisant l'image de la commande
+	 * @param sujet le sujet a actualiser
+	 */
 	@Override
 	public void actualiser(Sujet sujet) {
 		ModeleCommande modele= (ModeleCommande) sujet;
