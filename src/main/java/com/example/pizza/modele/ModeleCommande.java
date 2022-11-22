@@ -237,7 +237,6 @@ public class ModeleCommande implements Sujet {
      * Methode renitialisant la commande
      */
     public void resetCommande(){
-        String res = "";
         //affichage de la commande dans la console
         System.out.println("Commande numero " + numCommande);
         for (Pizza p : listPizza) {
@@ -249,5 +248,13 @@ public class ModeleCommande implements Sujet {
         numPizzaCourante = 0;
         prixCommande = 0;
         numCommande++;
+    }
+
+    /**
+     * getter du numero de commande
+     * @return int, le numero de commande
+     */
+    public int getNumCommande() {
+        return numCommande;
     }
 }

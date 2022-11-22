@@ -1,4 +1,5 @@
 package com.example.pizza.vue;
+
 import com.example.pizza.modele.ModeleCommande;
 import com.example.pizza.modele.factory.Pizza;
 import com.example.pizza.modele.Sujet;
@@ -20,6 +21,7 @@ public class VueCommText extends Label implements Observateur {
 
     /**
      * Methode actualisant le texte decrivant de la commande
+     *
      * @param sujet le sujet a actualiser
      */
     @Override
@@ -30,10 +32,10 @@ public class VueCommText extends Label implements Observateur {
         ArrayList<Pizza> commandes = modele.getListPizza();
         //on affiche la liste des pizzas si il y en a
         if (commandes.size() > 0) {
-            String res = "Votre commande : \n";
+            String res = "Votre commande n° " + modele.getNumCommande() + " : \n";
             for (int i = 0; i < commandes.size(); i++) {
                 Pizza pizza = commandes.get(i);
-                res += String.format("Pizza %o : %.2f\n", i+1,pizza.cout());
+                res += String.format("Pizza %o : %.2f\n", i + 1, pizza.cout());
                 res += pizza.getDescription() + "\n";
             }
             this.setText(res);

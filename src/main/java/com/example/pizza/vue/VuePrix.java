@@ -15,6 +15,7 @@ public class VuePrix extends Label implements Observateur {
 
     /**
      * Methode actualisant le prix de la commande
+     *
      * @param sujet le sujet a actualiser
      */
     @Override
@@ -25,7 +26,7 @@ public class VuePrix extends Label implements Observateur {
         double total = modele.getPrixCommande();
         //on affiche le prix total si il y a une commande
         if (total > 0) {
-            this.setText(String.format("Prix total de votre commande : %.2f euros", total));
+            this.setText(String.format("Prix total de votre commande n° " + modele.getNumCommande() + " : %.2f euros", total));
         } else {
             this.setText("Pas de commande en cours");
         }
