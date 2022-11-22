@@ -17,16 +17,16 @@ public class ModeleCommande implements Sujet {
     private double prixCommande;
     public double taux;
     private ArrayList<Observateur> listObservateur;
+    public static int nbCommande = 0;
 
     /**
      * Constructeur de la classe ModeleCommande
-     *
-     * @param numCommande
      */
-    public ModeleCommande(int numCommande) {
+    public ModeleCommande() {
+        nbCommande++;
+        this.numCommande = nbCommande;
         this.nbPizza = 0;
         this.listPizza = new ArrayList<Pizza>();
-        this.numCommande = numCommande;
         this.prixCommande = 0;
         this.listObservateur = new ArrayList<Observateur>();
         this.taux = 1;
@@ -47,6 +47,7 @@ public class ModeleCommande implements Sujet {
 
     /**
      * Ajoute une pizza à la commande
+     *
      * @param pizza
      */
     public void ajouterPizza(String pizza) {
