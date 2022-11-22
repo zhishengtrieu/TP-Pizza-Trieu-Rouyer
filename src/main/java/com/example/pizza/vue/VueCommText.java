@@ -1,6 +1,6 @@
 package com.example.pizza.vue;
 import com.example.pizza.modele.ModeleCommande;
-import com.example.pizza.modele.Pizza;
+import com.example.pizza.modele.factory.Pizza;
 import com.example.pizza.modele.Sujet;
 import javafx.scene.control.Label;
 

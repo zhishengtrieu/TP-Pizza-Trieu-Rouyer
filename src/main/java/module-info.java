@@ -15,4 +15,6 @@ module com.example.pizza {
     opens com.example.pizza.modele.decorateurs to javafx.fxml;
     exports com.example.pizza.modele.fidelite;
     opens com.example.pizza.modele.fidelite to javafx.fxml;
+    exports com.example.pizza.modele.factory;
+    opens com.example.pizza.modele.factory to javafx.fxml;
 }

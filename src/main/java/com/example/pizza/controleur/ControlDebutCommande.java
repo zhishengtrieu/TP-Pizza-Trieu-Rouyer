@@ -28,12 +28,20 @@ public class ControlDebutCommande implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         //on recupere le base de pizza choisie
         Button button = (Button) actionEvent.getSource();
-        String basePizza = button.getText();
+        String choix = button.getId();
         //on met a jour le modele
-        if (basePizza.contains("tomate")) {
-            modele.ajouterPizza("Tomate");
-        } else {
-            modele.ajouterPizza("Creme");
+        switch (choix){
+            case "Creme" :
+                modele.ajouterPizza("Creme");
+                break;
+            case "Tomate" :
+                modele.ajouterPizza("Tomate");
+                break;
+            case "Retirer" :
+                modele.retirerPizza();
+                break;
+            default:
+
         }
         //on met a jour la vue
         modele.notifierObservateurs();

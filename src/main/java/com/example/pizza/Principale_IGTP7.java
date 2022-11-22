@@ -44,18 +44,24 @@ public class Principale_IGTP7 extends Application {
         pnord.setPadding(new Insets(10));
         pnord.setAlignment(Pos.CENTER);
 
+        //zone 1
         ComboBox<String> choixFidelite = new ComboBox<String>();
         choixFidelite.getItems().addAll(fidelite);
         choixFidelite.setValue("Nouveau client");
         choixFidelite.setOnAction(new ControleurFidelite(modele));
 
         Button addPizzaCreme= new Button(" Ajouter une pizza fond creme ");
+        addPizzaCreme.setId("Creme");
         addPizzaCreme.setOnAction(new ControlDebutCommande(modele));
         Button addPizzaTomate= new Button(" Ajouter une pizza fond tomate ");
+        addPizzaTomate.setId("Tomate");
         addPizzaTomate.setOnAction(new ControlDebutCommande(modele));
-        pnord.getChildren().addAll(choixFidelite, addPizzaCreme, addPizzaTomate);
+        //Un bouton pour retirer la dernière pizza
+        Button removePizza= new Button(" Retirer la derniere pizza ");
+        removePizza.setId("Retirer");
+        removePizza.setOnAction(new ControlDebutCommande(modele));
+        pnord.getChildren().addAll(choixFidelite, addPizzaCreme, addPizzaTomate, removePizza);
         bp.setTop(pnord); //place pnord en haut de l'IG
-
 
         // Panneau au centre de l'IG contenant la vision du choix des pizzas
         // ainsi que les boutons pour ajouter des ingredients
@@ -78,6 +84,11 @@ public class Principale_IGTP7 extends Application {
             bIngr[i].setOnAction(new ControlIngredients(modele));
             pingr.add(bIngr[i],i,0);
         }
+        //Un bouton dans pour retirer le dernier ingredient ajoute à la pizza courante
+        Button removeIngr= new Button(" Retirer le dernier ingredient ");
+        removeIngr.setId("RetirerIngr");
+        removeIngr.setOnAction(new ControlIngredients(modele));
+        pingr.add(removeIngr,3,2);
        // pingr.setPreferredSize(new Dimension(935,50));
         pcentral.setBottom(pingr);
         bp.setCenter(pcentral); //place pcentral au centre de l'IG

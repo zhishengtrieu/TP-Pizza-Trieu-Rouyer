@@ -1,8 +1,12 @@
 package com.example.pizza.modele;
 
 import com.example.pizza.modele.decorateurs.*;
+import com.example.pizza.modele.factory.Pizza;
+import com.example.pizza.modele.factory.PizzaCreme;
+import com.example.pizza.modele.factory.PizzaTomate;
 import com.example.pizza.modele.fidelite.StrategyFidelite;
 import com.example.pizza.vue.Observateur;
+import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;
 
@@ -146,37 +150,81 @@ public class ModeleCommande implements Sujet {
         numPizzaCourante = numPizza;
     }
 
+    /**
+     * Methode permettant d'ajouter un ingrédient à la pizza courante
+     *
+     * @param numIngredient
+     */
     public void choixIngredient(int numIngredient) {
-        //on recupere la pizza courante
-        Pizza pizza = listPizza.get(numPizzaCourante);
-        switch (numIngredient) {
-            case 0:
-                pizza = new PizzaFromage(pizza);
-                break;
-            case 1:
-                pizza = new PizzaChampignon(pizza);
-                break;
-            case 2:
-                pizza = new PizzaChorizo(pizza);
-                break;
-            case 3:
-                pizza = new PizzaOeuf(pizza);
-                break;
-            case 4:
-                pizza = new PizzaOignons(pizza);
-                break;
-            case 5:
-                pizza = new PizzaOlivesN(pizza);
-                break;
-            case 6:
-                pizza = new PizzaOlivesV(pizza);
-                break;
-            case 7:
-                pizza = new PizzaRoquette(pizza);
-                break;
-            default:
+        //on execute la methode que si une pizza a ete selectionnee
+        if (numPizzaCourante >= 0 && numPizzaCourante < nbPizza) {
+            //on recupere la pizza courante
+            Pizza pizza = listPizza.get(numPizzaCourante);
+            //on ajoute l'ingredient avec un decorateur
+            switch (numIngredient) {
+                case 0:
+                    pizza = new PizzaFromage(pizza);
+                    break;
+                case 1:
+                    pizza = new PizzaChampignon(pizza);
+                    break;
+                case 2:
+                    pizza = new PizzaChorizo(pizza);
+                    break;
+                case 3:
+                    pizza = new PizzaOeuf(pizza);
+                    break;
+                case 4:
+                    pizza = new PizzaOignons(pizza);
+                    break;
+                case 5:
+                    pizza = new PizzaOlivesN(pizza);
+                    break;
+                case 6:
+                    pizza = new PizzaOlivesV(pizza);
+                    break;
+                case 7:
+                    pizza = new PizzaRoquette(pizza);
+                    break;
+                default:
+            }
+            //on remplace la pizza courante par la pizza decoree
+            listPizza.set(numPizzaCourante, pizza);
+        }
+    }
+
+    /**
+     * Methode permettant de retirer la dernire pizza de la commande
+     */
+    public void retirerPizza() {
+        if (nbPizza > 0) {
+            //on retire le dernier
+            listPizza.remove(nbPizza - 1);
+            nbPizza--;
+        }
+    }
+
+    /**
+     * Methode permettant de supprimer le dernier ingredient à la pizza courante
+     */
+    public void retirerIngredient() {
+        //on execute la methode que si une pizza a ete selectionnee
+        if (numPizzaCourante >= 0 && numPizzaCourante < nbPizza) {
+            //on recupere la pizza courante
+            Pizza pizza = listPizza.get(numPizzaCourante);
+            //on verifie que la pizza est un decorateur
+            if (pizza instanceof IngredientPizza deco) {
+                //on recupere la pizza decoree
+                //on prend l'objet decoree du decorateur
+                pizza = deco.getPizza();
+                //on suprime la derniere image qui correspond au dernier ingredient
+                StackPane sp = pizza.getPizzalm().getSp();
+                int taille = sp.getChildren().size();
+                sp.getChildren().remove(taille - 1);
+                //on remplace la pizza courante par l'ancienne pizza
+                listPizza.set(numPizzaCourante, pizza);
+            }
         }
 
-        listPizza.set(numPizzaCourante, pizza);
     }
 }
