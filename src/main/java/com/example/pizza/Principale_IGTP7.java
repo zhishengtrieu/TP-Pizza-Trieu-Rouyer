@@ -50,17 +50,21 @@ public class Principale_IGTP7 extends Application {
         choixFidelite.setValue("Nouveau client");
         choixFidelite.setOnAction(new ControleurFidelite(modele));
 
-        Button addPizzaCreme= new Button(" Ajouter une pizza fond creme ");
+        Button addPizzaCreme= new Button("Ajouter une pizza fond creme");
         addPizzaCreme.setId("Creme");
         addPizzaCreme.setOnAction(new ControlDebutCommande(modele));
-        Button addPizzaTomate= new Button(" Ajouter une pizza fond tomate ");
+        Button addPizzaTomate= new Button("Ajouter une pizza fond tomate");
         addPizzaTomate.setId("Tomate");
         addPizzaTomate.setOnAction(new ControlDebutCommande(modele));
+        Button addPizzaFromage = new Button("Ajouter une pizza fond fromage blanc");
+        addPizzaFromage.setId("Fromage");
+        addPizzaFromage.setOnAction(new ControlDebutCommande(modele));
+
         //Un bouton pour retirer la dernière pizza
-        Button removePizza= new Button(" Retirer la derniere pizza ");
+        Button removePizza= new Button("Retirer la derniere pizza");
         removePizza.setId("Retirer");
         removePizza.setOnAction(new ControlDebutCommande(modele));
-        pnord.getChildren().addAll(choixFidelite, addPizzaCreme, addPizzaTomate, removePizza);
+        pnord.getChildren().addAll(choixFidelite, addPizzaCreme, addPizzaTomate, addPizzaFromage, removePizza);
         bp.setTop(pnord); //place pnord en haut de l'IG
 
         // Panneau au centre de l'IG contenant la vision du choix des pizzas

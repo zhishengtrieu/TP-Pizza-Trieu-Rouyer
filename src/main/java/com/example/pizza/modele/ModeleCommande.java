@@ -1,9 +1,7 @@
 package com.example.pizza.modele;
 
 import com.example.pizza.modele.decorateurs.*;
-import com.example.pizza.modele.factory.Pizza;
-import com.example.pizza.modele.factory.PizzaCreme;
-import com.example.pizza.modele.factory.PizzaTomate;
+import com.example.pizza.modele.factory.*;
 import com.example.pizza.modele.fidelite.StrategyFidelite;
 import com.example.pizza.vue.Observateur;
 import javafx.scene.layout.StackPane;
@@ -49,20 +47,27 @@ public class ModeleCommande implements Sujet {
 
     /**
      * Ajoute une pizza à la commande
-     *
      * @param pizza
      */
     public void ajouterPizza(String pizza) {
         //On vérifie que le nombre max de pizza n'est pas atteint pour une commande
         if (nbPizza < 4) {
-            Pizza p;
-            if (pizza.compareTo("Creme") == 0) {
-                p = new PizzaCreme();
-            } else {
-                p = new PizzaTomate();
+            //on utilise une fabrique pour creer la pizza
+            FactoryPizza factoryPizza;
+            //le type de fabrique depend du type de pizza choisi
+            switch (pizza) {
+                case "Tomate":
+                    factoryPizza = new FactoryPizzaTomate();
+                    break;
+                case "Fromage":
+                    factoryPizza = new FactoryPizzaFromage();
+                    break;
+                default:
+                    //on aura la fabrique de pizza creme par defaut
+                    factoryPizza = new FactoryPizzaCreme();
             }
+            listPizza.add(factoryPizza.creerPizza());
             nbPizza++;
-            listPizza.add(p);
 
         }
     }

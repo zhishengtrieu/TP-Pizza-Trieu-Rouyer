@@ -37,6 +37,9 @@ public class ControlDebutCommande implements EventHandler<ActionEvent> {
             case "Tomate" :
                 modele.ajouterPizza("Tomate");
                 break;
+            case "Fromage" :
+                modele.ajouterPizza("Fromage");
+                break;
             case "Retirer" :
                 modele.retirerPizza();
                 break;
