@@ -1,7 +1,7 @@
 package com.example.pizza.modele.decorateurs;
 
 import com.example.pizza.MyImage;
-import com.example.pizza.modele.Pizza;
+import com.example.pizza.modele.factory.Pizza;
 
 public abstract class IngredientPizza implements Pizza {
 
@@ -12,7 +12,7 @@ public abstract class IngredientPizza implements Pizza {
     private MyImage myIm;
 
     /**
-     * Constructeur d' ingrédient de pizza
+     * Constructeur d'ingredient de pizza
      * @param pi la pizza sur laquelle on ajoute l'ingrédient
      * @param pr le prix de l'ingrédient
      * @param des la description de l'ingrédient
@@ -49,5 +49,13 @@ public abstract class IngredientPizza implements Pizza {
      */
     public MyImage getPizzalm(){
         return myIm;
+    }
+
+    /**
+     * Getter de la pizza sur laquelle on ajoute l'ingredient
+     * @return
+     */
+    public Pizza getPizza() {
+        return pizza;
     }
 }

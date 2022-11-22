@@ -27,9 +27,19 @@ public class ControlIngredients implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         //on recupere l'ingredient choisi
         Button button = (Button) actionEvent.getSource();
-        int ingredient = Integer.parseInt(button.getId());
+        String choix = button.getId();
         //on met a jour le modele
-        modele.choixIngredient(ingredient);
+        switch (choix){
+            //dans le cas ou on doit retirer un ingredient
+            case "RetirerIngr" :
+                modele.retirerIngredient();
+                break;
+            default:
+                //le cas ou on doit ajouter un ingredient
+                //on recupere l'id de l'ingredient
+                int ingredient = Integer.parseInt(choix);
+                modele.choixIngredient(ingredient);
+        }
         //on met a jour la vue
         modele.notifierObservateurs();
     }

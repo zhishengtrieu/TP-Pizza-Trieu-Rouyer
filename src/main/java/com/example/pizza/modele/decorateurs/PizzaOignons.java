@@ -1,6 +1,6 @@
 package com.example.pizza.modele.decorateurs;
 
-import com.example.pizza.modele.Pizza;
+import com.example.pizza.modele.factory.Pizza;
 
 public class PizzaOignons extends IngredientPizza {
 
