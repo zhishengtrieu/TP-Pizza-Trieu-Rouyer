@@ -1,4 +1,4 @@
-package com.example.pizza.modele;
+package com.example.pizza.modele.factory;
 
 import com.example.pizza.MyImage;
 
@@ -30,8 +30,8 @@ public class PizzaCreme implements Pizza {
     }
 
     /**
-     * Methode permettant de recuperer le prix de la pizza a ma creme
-     * @return le prix de la pizza a la creme
+     * Methode permettant de recuperer le prix de la pizza a la creme
+     * @return double, le prix de la pizza a la creme
      */
     @Override
     public double cout() {

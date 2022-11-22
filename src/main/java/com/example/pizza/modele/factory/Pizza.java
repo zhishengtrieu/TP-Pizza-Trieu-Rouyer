@@ -1,4 +1,4 @@
-package com.example.pizza.modele;
+package com.example.pizza.modele.factory;
 
 import com.example.pizza.MyImage;
 
