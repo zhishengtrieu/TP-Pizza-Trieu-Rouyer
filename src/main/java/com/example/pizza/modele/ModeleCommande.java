@@ -231,6 +231,23 @@ public class ModeleCommande implements Sujet {
                 listPizza.set(numPizzaCourante, pizza);
             }
         }
+    }
 
+    /**
+     * Methode renitialisant la commande
+     */
+    public void resetCommande(){
+        String res = "";
+        //affichage de la commande dans la console
+        System.out.println("Commande numero " + numCommande);
+        for (Pizza p : listPizza) {
+            System.out.println(p.getDescription());
+        }
+        //On renitialise la commande
+        listPizza.clear();
+        nbPizza = 0;
+        numPizzaCourante = 0;
+        prixCommande = 0;
+        numCommande++;
     }
 }

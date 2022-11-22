@@ -46,7 +46,9 @@ public class ControlCommande implements EventHandler<ActionEvent> {
                 modele.retirerPizza();
                 break;
             case "Valider":
-                //TODO : valider la commande
+                System.out.println("test 2");
+                //on met a jour le modele
+                modele.resetCommande();
                 break;
         }
         //on met a jour la vue
